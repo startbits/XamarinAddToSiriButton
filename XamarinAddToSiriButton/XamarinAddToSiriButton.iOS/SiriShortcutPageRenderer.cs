@@ -25,8 +25,8 @@ namespace XamarinAddToSiriButton.iOS
             siriButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
             this.View.AddSubview(siriButton);
-            this.View.CenterXAnchor.ConstraintEqualTo(siriButton.CenterXAnchor).Active = true;
-            this.View.CenterYAnchor.ConstraintEqualTo(siriButton.CenterYAnchor).Active = true;
+            siriButton.CenterXAnchor.ConstraintEqualTo(this.View.CenterXAnchor).Active = true;
+            siriButton.CenterYAnchor.ConstraintEqualTo(this.View.CenterYAnchor).Active = true;
         }
     }
 

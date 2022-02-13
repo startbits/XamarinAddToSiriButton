@@ -17,19 +17,24 @@ Xamarin.Formsで作成した、Siriショートカットボタンの最小実装
 [コミット](XamarinAddToSiriButton/XamarinAddToSiriButton.iOS/SiriShortcutPageRenderer.cs#L28-L29)
 しているのと同じ設定で、画面の真ん中にSiriショートカットボタンを配置しています。
 ```charp
-this.View.CenterXAnchor.ConstraintEqualTo(siriButton.CenterXAnchor).Active = true;
-this.View.CenterYAnchor.ConstraintEqualTo(siriButton.CenterYAnchor).Active = true;
+siriButton.CenterXAnchor.ConstraintEqualTo(this.View.CenterXAnchor).Active = true;
+siriButton.CenterYAnchor.ConstraintEqualTo(this.View.CenterYAnchor).Active = true;
 ```
 2つ目以降は別で試したものでコミットしていません。
 2つ目は下付きです。ちょっと不格好になるのでマージンが必要かもしれません。
 ```charp
-this.View.CenterXAnchor.ConstraintEqualTo(siriButton.CenterXAnchor).Active = true;
-this.View.BottomAnchor.ConstraintEqualTo(siriButton.BottomAnchor).Active = true;
+siriButton.CenterXAnchor.ConstraintEqualTo(this.View.CenterXAnchor).Active = true;
+siriButton.BottomAnchor.ConstraintEqualTo(this.View.BottomAnchor).Active = true;
+```
+マージン
+```charp
+siriButton.CenterXAnchor.ConstraintEqualTo(this.View.CenterXAnchor).Active = true;
+siriButton.BottomAnchor.ConstraintEqualTo(this.View.BottomAnchor, -20).Active = true;
 ```
 3つ目は上付きです。文字とSiriショートカットボタンの配置が重なってしまいました。
 ```charp
-this.View.CenterXAnchor.ConstraintEqualTo(siriButton.CenterXAnchor).Active = true;
-this.View.TopAnchor.ConstraintEqualTo(siriButton.TopAnchor).Active = true;
+siriButton.CenterXAnchor.ConstraintEqualTo(this.View.CenterXAnchor).Active = true;
+siriButton.TopAnchor.ConstraintEqualTo(this.View.TopAnchor).Active = true;
 ```
 このように配置位置はiOS側での調整となるため、Xamlの記載に気を付けてください。
 見栄えが悪かったり、文字とSiriショートカットボタンの配置が重なるかもしれません。
